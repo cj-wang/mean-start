@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
 
 import { PostsService } from './posts/posts.service';
+import { ChatComponent } from './chat/chat.component';
 
 // Define the routes
 const ROUTES = [
@@ -19,13 +20,18 @@ const ROUTES = [
   {
     path: 'posts',
     component: PostsComponent
+  },
+  {
+    path: 'chat',
+    component: ChatComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent
+    PostsComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

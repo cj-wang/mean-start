@@ -1,0 +1,12 @@
+<h2>
+  Messages:
+</h2>
+
+<ul>
+  <li *ngFor="let msg of msgs">
+    {{msg}}
+  </li>
+</ul>
+
+<input #mm/>
+<button (click)="send(mm.value); mm.value=''">Send</button>

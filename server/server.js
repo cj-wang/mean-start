@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 // Get our API routes
 const api = require('./routes/api');
 
+const socket = require('./socket/socket');
+
 const app = express();
 
 // Parsers for POST data
@@ -34,6 +36,9 @@ app.set('port', port);
  * Create HTTP server.
  */
 const server = http.createServer(app);
+
+
+socket(server)
 
 /**
  * Listen on provided port, on all network interfaces.
