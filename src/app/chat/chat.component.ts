@@ -1,4 +1,4 @@
-declare var socket: any;
+declare var io: any;
 
 import { Component, OnInit, NgZone } from '@angular/core';
 
@@ -9,11 +9,13 @@ import { Component, OnInit, NgZone } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
   msgs = ['aa', 'bb'];
+  socket: any;
 
   constructor(private zone: NgZone) { }
 
   ngOnInit() {
-    socket.on('chat message', (msg: string) => {
+    this.socket = io();
+    this.socket.on('chat message', (msg: string) => {
       this.zone.run(() => {
         this.msgs.push(msg)
       });
@@ -22,7 +24,7 @@ export class ChatComponent implements OnInit {
 
   send = function (msg: string) {
     // this.msgs.push(msg);
-    socket.emit('chat message', msg);
+    this.socket.emit('chat message', msg);
   };
 
 }
