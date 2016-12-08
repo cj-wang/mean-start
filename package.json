@@ -4,7 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"supervisor ./server/server.js\" ",
+    "start": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"supervisor -w server server/server.js\" ",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
