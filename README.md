@@ -1,7 +1,9 @@
-# MeanStart
+# MEAN Start
+
+Angular2 + Angular-CLI + Express
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) 
-and combined [express](https://github.com/expressjs/express) as a MEAN stack. 
+and combined [express](https://github.com/expressjs/express) as a MEAN stack starter. 
 
 ## Development server
 Run `npm start` for a dev server. 
