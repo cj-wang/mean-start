@@ -1,9 +1,16 @@
 # MeanStart
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.22-1.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) and combined [express](https://github.com/expressjs/express) as a MEAN stack. 
 
 ## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. 
+```
+"start": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"supervisor ./server/server.js\" ",
+```
+The CLI dev server `http://localhost:4200/` and express API server `http://localhost:3000/` are concurrently started. 
+The CLI dev server is configured to proxy all calls to `http://localhost:4200/api` to go to `http://localhost:3000/api`
+Navigate to `http://localhost:4200/` for the app. The app will automatically reload if you change any of the client source files.
+The `express` server will automatically restart by `supervisor` if you change any of the server source files.
 
 ## Code scaffolding
 
