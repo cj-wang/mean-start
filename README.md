@@ -1,6 +1,7 @@
 # MeanStart
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) and combined [express](https://github.com/expressjs/express) as a MEAN stack. 
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) 
+and combined [express](https://github.com/expressjs/express) as a MEAN stack. 
 
 ## Development server
 Run `npm start` for a dev server. 
@@ -9,7 +10,9 @@ Run `npm start` for a dev server.
 ```
 The CLI dev server `http://localhost:4200/` and express API server `http://localhost:3000/` are concurrently started. 
 The CLI dev server is configured to proxy all calls to `http://localhost:4200/api` to go to `http://localhost:3000/api`
+
 Navigate to `http://localhost:4200/` for the app. The app will automatically reload if you change any of the client source files.
+
 The `express` server will automatically restart by `supervisor` if you change any of the server source files.
 
 ## Code scaffolding
