@@ -37,7 +37,7 @@ app.set('port', port);
  */
 const server = http.createServer(app);
 
-
+// Set up socket.io server
 socket(server)
 
 /**
