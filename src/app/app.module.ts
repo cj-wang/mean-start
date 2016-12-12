@@ -10,7 +10,6 @@ import { PostsComponent } from './posts/posts.component';
 import { PostsService } from './posts/posts.service';
 import { ChatComponent } from './chat/chat.component';
 
-// Define the routes
 const ROUTES = [
   {
     path: '',
@@ -37,9 +36,9 @@ const ROUTES = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES) // Add routes to the app
+    RouterModule.forRoot(ROUTES)
   ],
-  providers: [PostsService], // Add the posts service
+  providers: [PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
