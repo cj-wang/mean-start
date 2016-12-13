@@ -5,10 +5,10 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { PostsComponent } from './posts/posts.component';
+import { PostsComponent } from './demo/posts/posts.component';
 
-import { PostsService } from './posts/posts.service';
-import { ChatComponent } from './chat/chat.component';
+import { PostsService } from './demo/posts/posts.service';
+import { ChatComponent } from './demo/chat/chat.component';
 
 const ROUTES = [
   {
