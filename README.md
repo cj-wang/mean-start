@@ -8,7 +8,7 @@ and combined [express](https://github.com/expressjs/express) as a MEAN stack sta
 ## Development server
 Run `npm start` for a dev server. 
 ```
-"start": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"supervisor -w server server/server.js\" ",
+"start": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"cd server && tsc -w\" \"supervisor -w dist dist/server.js\" ",
 ```
 The CLI dev server `http://localhost:4200/` and express API server `http://localhost:3000/` are concurrently started. 
 The CLI dev server is configured to proxy all calls to `http://localhost:4200/api` to go to `http://localhost:3000/api`
