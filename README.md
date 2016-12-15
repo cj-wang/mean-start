@@ -14,10 +14,10 @@ Run `npm start` for a dev server. The `start` script deinfed in `package.json` i
 ```
 "start": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"cd server && tsc -w\" \"supervisor -w dist dist/server.js\" ",
 ```
-The script starts the `angular-cli` dev server [http://localhost:4200/] and the `express` server [http://localhost:3000/] concurrently. 
-The `angular-cli` dev server is configured to proxy all API calls to [http://localhost:4200/api] to go to `express` server [http://localhost:3000/api].
+The script starts the `angular-cli` dev server http://localhost:4200/ and the `express` server http://localhost:3000/ concurrently. 
+The `angular-cli` dev server is configured to proxy all API calls to http://localhost:4200/api to go to `express` server http://localhost:3000/api.
 
-Navigate to [http://localhost:4200/] for the app. The angular app will automatically reload if you change any of the client source files.
+Navigate to http://localhost:4200/ for the app. The angular app will automatically reload if you change any of the client source files.
 
 The `express` web server will be automatically restarted by `supervisor` if you change any of the server source files.
 
