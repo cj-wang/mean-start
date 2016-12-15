@@ -23,7 +23,14 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Server
+
+Run `cd server` and `tsc` to compile the server ts files. The compiled js files will be stored in the `dist/` directory.
+
+### client
+
+Run `ng build` to build the client project. The build artifacts will be stored in the `dist/public/` directory. Use the `-prod` flag for a production build.
+Express is configured to serve the build artifacts as static files.
 
 ## Running unit tests
 
