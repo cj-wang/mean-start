@@ -14,7 +14,7 @@ app.set('port', port);
 const server = http.createServer(app);
 
 // socket.io
-socket.init(server);
+socket(server);
 
 server.listen(port);
 server.on('error', onError);
