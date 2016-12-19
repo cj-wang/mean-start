@@ -1,25 +1,28 @@
 # MEAN Start
 
-## Angular2 + Angular-CLI + Express
-
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) 
-and combined [express](https://github.com/expressjs/express) as a MEAN stack starter. 
+## Angular2 + Angular-CLI + Express + Mongoose
 
 ## Install npm packages
 
 Run `npm install` to install the npm packages described in the `package.json`.
 
 ## Development server
-Run `npm start` for a dev server. The `start` script deinfed in `package.json` is as:
+Run `npm start` for a dev server. Navigate to [http://localhost:4200/](http://localhost:4200/) for the app.
+
+The `start` script defined in `package.json` is as:
 ```
 "start": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"cd server && tsc -w\" \"supervisor -w dist dist/server.js\" ",
 ```
-The script starts the `angular-cli` dev server http://localhost:4200/ and the `express` server http://localhost:3000/ concurrently. 
-The `angular-cli` dev server is configured to proxy all API calls to http://localhost:4200/api to go to `express` server http://localhost:3000/api.
+The script starts 2 servers at the backgroud concurrently:
 
-Navigate to http://localhost:4200/ for the app. The angular app will automatically reload if you change any of the client source files.
+* angular-cli dev server, starts at http://localhost:4200/, serving the angular app.
+The angular app will automatically reload if you change any of the client source files.
 
-The `express` web server will be automatically restarted by `supervisor` if you change any of the server source files.
+* express server, starts at http://localhost:3000/, serving the REST APIs.
+The express server will be automatically restarted by `supervisor` if you change any of the server source files.
+
+The `angular-cli` dev server is configured to proxy all API calls to http://localhost:4200/api to go to `express` server http://localhost:3000/api, 
+so that the whole app is available at [http://localhost:4200/](http://localhost:4200/).
 
 ## Code scaffolding
 
@@ -27,13 +30,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-### Server
+To build the client project, run `ng build` in the project directory. The build artifacts will be stored in the `dist/public/` directory. Use the `-prod` flag for a production build.
 
-Run `cd server` and `tsc` to compile the server ts files. The compiled js files will be stored in the `dist/` directory.
+To build the server files, run `tsc` in the `server` directory. The compiled js files will be stored in the `dist/` directory.
 
-### client
-
-Run `ng build` to build the client project. The build artifacts will be stored in the `dist/public/` directory. Use the `-prod` flag for a production build.
+After building both the client and the server, the `dist/` directory will contain all the distribution files of the whole app.  
 
 ## Running unit tests
 
