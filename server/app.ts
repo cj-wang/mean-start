@@ -7,7 +7,6 @@ import * as mongoose from 'mongoose';
 
 // import index from './routes/index';
 // import users from './routes/users';
-import api from './routes/api';
 
 const app: express.Express = express();
 
@@ -25,7 +24,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', index);
 // app.use('/users', users);
-app.use('/api', api);
+
+// API routes
+const apiRouter = express.Router();
+const routes = require('require-all')(__dirname + '/routes/api');
+Object.keys(routes).forEach((name) => {
+  routes[name].default(apiRouter);
+});
+app.use('/api', apiRouter);
 
 // Default to main page, angular route takes over
 app.use((req, res) => {

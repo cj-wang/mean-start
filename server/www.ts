@@ -2,7 +2,6 @@ import * as http from 'http';
 import * as debugModule from 'debug';
 
 import app from './app';
-import socket from './socket/socket';
 
 const debug = debugModule('express-start:server');
 
@@ -14,7 +13,10 @@ app.set('port', port);
 const server = http.createServer(app);
 
 // socket.io
-socket(server);
+const sockets = require('require-all')(__dirname + '/sockets');
+Object.keys(sockets).forEach((name) => {
+  sockets[name].default(server);
+});
 
 server.listen(port);
 server.on('error', onError);
