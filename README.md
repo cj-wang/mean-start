@@ -2,14 +2,68 @@
 
 ###  Angular2 + Angular-CLI + Express + Mongoose. All in TypeScript.
 
+## Prerequisites
+
+* [Install Node.js and update npm](https://docs.npmjs.com/getting-started/installing-node)
+
+* [Install MongoDB](https://docs.mongodb.com/manual/installation/)
+
+* [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+* Install global dependencies:
+  ```bash
+  npm install -g typescript
+  npm install -g concurrently
+  npm install -g supervisor
+  ```
+
+## Create a new project based on the MEAN Start
+
+Clone this repo into new project folder (e.g., `my-proj`):
+```bash
+git clone  https://github.com/wcj3570/mean-start  my-proj
+cd my-proj
+```
+
+Discard everything "git-like" by deleting the `.git` folder:
+```bash
+rm -rf .git  # non-Windows
+rd .git /S/Q # windows
+```
+
+### Create a new git repo
+
+Initialize this project as a *local git repo* and make the first commit:
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+```
+
+Create a *remote repository* for this project on the service of your choice.
+
+Grab its address (e.g. *`https://github.com/<my-org>/my-proj.git`*) and push the *local repo* to the *remote*:
+```bash
+git remote add origin <repo-address>
+git push -u origin master
+```
 ## Install npm packages
 
-Run `npm install` to install the npm packages described in the `package.json`.
+Install the npm packages described in the `package.json`:
+```bash
+npm install
+```
 
 ## Development server
-Run `npm start` for a dev server. Navigate to [http://localhost:4200/](http://localhost:4200/) for the app.
+Start the dev server:
+```bash
+npm start
+```
 
-The `start` script defined in `package.json` is as:
+Navigate to [http://localhost:4200/](http://localhost:4200/) for the app.
+Shut it down manually with `Ctrl-C`.
+
+The `start` script defined in `package.json` is:
 ```
 "start": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"cd server && tsc -w\" \"supervisor -w dist dist/server.js\" ",
 ```
@@ -23,6 +77,8 @@ The server will be automatically restarted by `supervisor` if you change any of 
 
 The `angular-cli` dev server is configured to proxy all API calls to http://localhost:4200/api to go to `express` server http://localhost:3000/api, 
 so that the whole app is available at [http://localhost:4200/](http://localhost:4200/).
+
+You're ready to write your application.
 
 ## Code scaffolding
 
