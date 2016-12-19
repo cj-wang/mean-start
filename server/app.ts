@@ -3,6 +3,7 @@ import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as path from 'path';
 import * as logger from 'morgan';
+import * as mongoose from 'mongoose';
 
 // import index from './routes/index';
 // import users from './routes/users';
@@ -64,5 +65,13 @@ app.use((req, res) => {
 //   return null;
 // });
 
-
 export default app;
+
+
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost/test');
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('MongoDB connected')
+});

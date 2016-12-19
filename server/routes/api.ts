@@ -1,5 +1,7 @@
 import { Router } from 'express';
-import axios from 'axios';
+
+import test from './test';
+import restUser from './rest-user';
 
 const router = Router();
 
@@ -8,19 +10,7 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
-// Get all posts
-router.get('/posts', (req, res) => {
-  // Get posts from the mock api
-  // This should ideally be replaced with a service that connects to MongoDB
-  // declare axios for making http requests
-  const API = 'https://jsonplaceholder.typicode.com';
-  axios.get(`${API}/posts`)
-    .then(posts => {
-      res.status(200).json(posts.data);
-    })
-    .catch(error => {
-      res.status(500).send(error)
-    });
-});
+test(router);
+restUser(router);
 
 export default router;
