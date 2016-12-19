@@ -1,6 +1,6 @@
 # MEAN Start
 
-## Angular2 + Angular-CLI + Express + Mongoose
+###  Angular2 + Angular-CLI + Express + Mongoose. All in TypeScript.
 
 ## Install npm packages
 
