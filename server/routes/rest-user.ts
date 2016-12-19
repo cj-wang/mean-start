@@ -8,7 +8,7 @@ export default function (router: Router) {
     // C
     .post((req, res) => {
       var user = new User();
-      user.name = req.body.name;
+      Object.assign(user, req.body);
       user.save((err) => {
         if (err) {
           res.json({ error: err });
@@ -47,7 +47,7 @@ export default function (router: Router) {
           res.json({ error: err });
           return;
         }
-        user.name = req.body.name;
+        Object.assign(user, req.body);
         user.save((err) => {
           if (err) {
             res.json({ error: err });
