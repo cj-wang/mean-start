@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import test from './test';
-import restUser from './rest-user';
+import crud from './crud';
 
 const router = Router();
 
@@ -11,6 +11,6 @@ router.get('/', (req, res) => {
 });
 
 test(router);
-restUser(router);
+crud(router);
 
 export default router;
