@@ -81,7 +81,62 @@ so that the whole app is available at [http://localhost:4200/](http://localhost:
 
 You're ready to write your application.
 
-## Code scaffolding
+## Develop
+
+### Model class
+
+Add `mongoose` model class in `server/models/` directory, e.g. `server/models/user.ts`:
+```TypeScript
+import * as mongoose from 'mongoose';
+
+export interface IUser {
+  email: string;
+  password: string;
+  name: string;
+};
+
+const userSchema = new mongoose.Schema({
+  email: String,
+  password: String,
+  name: String
+});
+
+interface IUserModel extends IUser, mongoose.Document { }
+
+const User = mongoose.model<IUserModel>('User', userSchema);
+
+export default User;
+```
+
+Model classes in `server/models/` directory are exposed as REST APIs by default.
+E.g. with the `User` model added, below REST APIs are created automatically:
+* POST    /api/users           - Create a User
+* GET     /api/users           - Get all the users
+* GET     /api/users/:user_id  - Get a single user
+* PUT     /api/users/:user_id  - Update a user with new info
+* DELETE  /api/users/:user_id  - Delete a user
+
+>TODO: Role-based access control required.
+
+### Custom API
+
+Add API module in `server/routes/api/` directory, e.g. `server/routes/api/test.ts`:
+```TypeScript
+import { Router } from 'express';
+
+export default function (router: Router) {
+  router.get('/test', (req, res) => {
+    // Implement the API for GET /api/test
+    res.send('Test API works');
+  });
+};
+```
+
+Modules in `server/routes/api/` directory are imported by `express` app automatically and exposed with the root URI `/api` prepended, e.g. `/api/test`.
+
+>TODO: Role-based access control required.
+
+### Angular component
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
 
