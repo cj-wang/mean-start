@@ -13,6 +13,7 @@
 * Install global dependencies:
   ```bash
   npm install -g typescript
+  npm install -g angular-cli
   npm install -g concurrently
   npm install -g supervisor
   ```
@@ -69,11 +70,11 @@ The `start` script defined in `package.json` is:
 ```
 The script starts 2 servers at the backgroud concurrently:
 
-* **angular-cli dev server** - starts at `http://localhost:4200/`, serving the angular app.
+* **angular-cli dev server** - starts at `http://localhost:4200/`, serving the `angular` app.
 The `angular` app will automatically reload if you change any of the client source files.
 
 * **express server** - starts at `http://localhost:3000/`, serving the REST APIs.
-The server will be automatically restarted by `supervisor` if you change any of the server source files.
+The `express` server will be automatically restarted by `supervisor` if you change any of the server source files.
 
 The `angular-cli` dev server is configured to proxy all API calls to `http://localhost:4200/api` to go to the `express` server `http://localhost:3000/api`, 
 so that the whole app is available at [http://localhost:4200/](http://localhost:4200/).
