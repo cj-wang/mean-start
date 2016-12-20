@@ -1,6 +1,6 @@
 # MEAN Start
 
-###  Angular2 + Angular-CLI + Express + Mongoose. All in TypeScript.
+**Angular2 + Angular-CLI + Express + Mongoose. All in TypeScript.** 
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@
 
 Clone this repo into new project folder (e.g., `my-proj`):
 ```bash
-git clone  https://github.com/wcj3570/mean-start  my-proj
+git clone https://github.com/wcj3570/mean-start my-proj
 cd my-proj
 ```
 
@@ -69,13 +69,13 @@ The `start` script defined in `package.json` is:
 ```
 The script starts 2 servers at the backgroud concurrently:
 
-* `angular-cli` dev server, starts at http://localhost:4200/, serving the angular app.
-The angular app will automatically reload if you change any of the client source files.
+* **angular-cli dev server** - starts at `http://localhost:4200/`, serving the angular app.
+The `angular` app will automatically reload if you change any of the client source files.
 
-* `express` server, starts at http://localhost:3000/, serving the REST APIs.
+* **express server** - starts at `http://localhost:3000/`, serving the REST APIs.
 The server will be automatically restarted by `supervisor` if you change any of the server source files.
 
-The `angular-cli` dev server is configured to proxy all API calls to http://localhost:4200/api to go to `express` server http://localhost:3000/api, 
+The `angular-cli` dev server is configured to proxy all API calls to `http://localhost:4200/api` to go to the `express` server `http://localhost:3000/api`, 
 so that the whole app is available at [http://localhost:4200/](http://localhost:4200/).
 
 You're ready to write your application.
@@ -86,11 +86,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-To build the client project, run `ng build` in the project directory. The build artifacts will be stored in the `dist/public/` directory. Use the `-prod` flag for a production build.
+* **Build the client project** - run `ng build` in the project directory. The build artifacts will be stored in the `dist/public/` directory. Use the `-prod` flag for a production build.
 
-To build the server files, run `tsc` in the `server/` directory. The compiled js files will be stored in the `dist/` directory.
+* **Compile the server files** - run `tsc` in the `server/` directory. The compiled js files will be stored in the `dist/` directory.
 
-After building both the client and the server, the `dist/` directory will be the full distribution of the app.  
+After building both the client and the server, the `dist/` directory is the full distribution of the app.  
 
 ## Running unit tests
 
