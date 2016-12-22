@@ -1,6 +1,5 @@
-declare var io: any;
-
 import { Component, OnInit, NgZone } from '@angular/core';
+import * as io from 'socket.io-client';
 
 @Component({
   selector: 'app-chat',
