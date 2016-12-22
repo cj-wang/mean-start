@@ -1,6 +1,6 @@
 # MEAN Start
 
-**Angular2 + Angular-CLI + Express + Mongoose. All in TypeScript.** 
+**Angular2 + Angular-CLI + Express + Mongoose + Socket.IO. All in TypeScript.** 
 
 ## Prerequisites
 
@@ -132,9 +132,30 @@ export default function (router: Router) {
 };
 ```
 
-Modules in `server/routes/api/` directory are imported by `express` app automatically and exposed with the root URI `/api` prepended, e.g. `/api/test`.
+Modules in `server/routes/api/` directory are imported by `express` app automatically and called by passing in the Router. 
+All the APIs are exposed with the root URI `/api` prepended, e.g. `/api/test`.
 
 >TODO: Role-based access control required.
+
+### Socket.IO
+
+Add Socket.IO module in `server/socket.io/` directory, e.g. `server/socket.io/test.ts`:
+```TypeScript
+export default function (io: SocketIO.Server) {
+  io.on('connection', function (socket) {
+    console.log('a user connected');
+    socket.on('chat message', function (msg) {
+      console.log('message: ' + msg);
+      io.emit('chat message', msg);
+    });
+    socket.on('disconnect', function () {
+      console.log('user disconnected');
+    });
+  });
+};
+```
+
+Modules in `server/socket.io/` directory are imported by `express` app automatically and called by passing in the `SocketIO.Server`.
 
 ### Angular component
 

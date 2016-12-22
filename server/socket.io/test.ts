@@ -1,7 +1,4 @@
-import * as socketio from 'socket.io';
-
-export default function (server) {
-  var io = socketio(server);
+export default function (io: SocketIO.Server) {
   io.on('connection', function (socket) {
     console.log('a user connected');
     socket.on('chat message', function (msg) {

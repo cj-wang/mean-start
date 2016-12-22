@@ -1,5 +1,6 @@
 import * as http from 'http';
 import * as debugModule from 'debug';
+import * as io from 'socket.io';
 
 import app from './app';
 
@@ -13,9 +14,9 @@ app.set('port', port);
 const server = http.createServer(app);
 
 // socket.io
-const sockets = require('require-all')(__dirname + '/sockets');
+const sockets = require('require-all')(__dirname + '/socket.io');
 Object.keys(sockets).forEach((name) => {
-  sockets[name].default(server);
+  sockets[name].default(io(server));
 });
 
 server.listen(port);
