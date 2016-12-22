@@ -21,7 +21,7 @@ export class ChatComponent implements OnInit {
     });
   }
 
-  send = function (msg: string) {
+  send(msg: string) {
     // this.msgs.push(msg);
     this.socket.emit('chat message', msg);
   };

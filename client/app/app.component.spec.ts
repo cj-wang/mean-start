@@ -2,13 +2,15 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { RouterOutletStubComponent } from '../testing';
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
-      ],
+        AppComponent,
+        RouterOutletStubComponent
+      ]
     });
     TestBed.compileComponents();
   });

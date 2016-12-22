@@ -2,8 +2,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { Observable } from "rxjs/Rx";
 
 import { PostsComponent } from './posts.component';
+import { PostsService } from './posts.service';
+
+class FakePostsService {
+  getAllPosts() {
+    return Observable.of([
+      {},
+      {}
+    ]);
+  }
+}
 
 describe('PostsComponent', () => {
   let component: PostsComponent;
@@ -11,9 +22,10 @@ describe('PostsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostsComponent ]
+      declarations: [PostsComponent],
+      providers: [{ provide: PostsService, useClass: FakePostsService }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
