@@ -14,8 +14,6 @@
   ```bash
   npm install -g typescript
   npm install -g angular-cli
-  npm install -g concurrently
-  npm install -g supervisor
   ```
 
 ## Create a new project based on the MEAN Start
@@ -66,7 +64,7 @@ Shut it down manually with `Ctrl-C`.
 
 The `start` script defined in `package.json` is:
 ```
-"start": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"cd server && tsc -w\" \"supervisor -w dist dist/server.js\" ",
+"start": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"nodemon --watch server --ext ts --ignore *.spec.ts --exec ts-node --project server server/www\" ",
 ```
 The script starts 2 servers at the backgroud concurrently:
 

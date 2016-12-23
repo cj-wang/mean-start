@@ -14,7 +14,10 @@ app.set('port', port);
 const server = http.createServer(app);
 
 // socket.io
-const sockets = require('require-all')(__dirname + '/socket.io');
+const sockets = require('require-all')({
+  dirname: __dirname + '/socket.io',
+  filter: /^([^\.].*)\.ts$/
+});
 Object.keys(sockets).forEach((name) => {
   sockets[name].default(io(server));
 });

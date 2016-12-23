@@ -1,6 +1,9 @@
 import { Router } from 'express';
 
-const models = require('require-all')(__dirname + '/../../models');
+const models = require('require-all')({
+  dirname: __dirname + '/../../models',
+  filter: /^([^\.].*)\.ts$/
+});
 
 export default function (router: Router) {
 
