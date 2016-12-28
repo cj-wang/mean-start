@@ -72,7 +72,7 @@ The script starts 2 servers at the backgroud concurrently:
 The `angular` app will automatically reload if you change any of the client source files.
 
 * **express server** - starts at `http://localhost:3000/`, serving the REST APIs.
-The `express` server will be automatically restarted by `supervisor` if you change any of the server source files.
+The `express` server will be automatically restarted by `nodemon` if you change any of the server source files.
 
 The `angular-cli` dev server is configured to proxy all API calls to `http://localhost:4200/api` to go to the `express` server `http://localhost:3000/api`, 
 so that the whole app is available at [http://localhost:4200/](http://localhost:4200/).
