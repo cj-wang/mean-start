@@ -161,11 +161,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-* **Build the client project** - run `ng build` in the project directory. The build artifacts will be stored in the `dist/public/` directory. Use the `-prod` flag for a production build.
-
-* **Compile the server files** - run `tsc` in the `server/` directory. The compiled js files will be stored in the `dist/` directory.
-
-After building both the client and the server, the `dist/` directory is the full distribution of the app.  
+```bash
+npm run build
+```
+The server compiled files will be stored in the `dist/` directory. 
+The client build artifacts will be stored in the `dist/public/` directory.
+The `dist/` directory is the full distribution of the app.  
 
 ## Running unit tests
 
