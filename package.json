@@ -12,7 +12,7 @@
     "e2e": "protractor",
     "build": "ng build -prod && tsc --project server",
     "start:prod": "nodemon dist/www.js",
-    "start:heroku": "npm run build && npm run start:prod"
+    "start:heroku": "concurrently  \"ng build -prod\" \"tsc --project server && nodemon dist/www.js\" "
   },
   "private": true,
   "dependencies": {
@@ -39,6 +39,7 @@
     "axios": "^0.15.3",
     "body-parser": "^1.15.2",
     "bootstrap": "^4.0.0-alpha.5",
+    "concurrently": "^3.1.0",
     "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
     "debug": "^2.3.3",
@@ -55,7 +56,6 @@
   },
   "devDependencies": {
     "codelyzer": "~2.0.0-beta.1",
-    "concurrently": "^3.1.0",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",
