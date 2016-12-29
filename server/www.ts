@@ -16,9 +16,10 @@ const server = http.createServer(app);
 // socket.io
 const sockets = require('require-all')({
   dirname: __dirname + '/socket.io',
-  filter: /^([^\.].*)\.ts$/
+  filter: /^([^\.].*)\.(ts|js)$/
 });
 Object.keys(sockets).forEach((name) => {
+  console.log(`Add socket.io ${name}`);
   sockets[name].default(io(server));
 });
 

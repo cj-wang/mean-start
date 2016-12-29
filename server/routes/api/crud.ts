@@ -2,12 +2,13 @@ import { Router } from 'express';
 
 const models = require('require-all')({
   dirname: __dirname + '/../../models',
-  filter: /^([^\.].*)\.ts$/
+  filter: /^([^\.].*)\.(ts|js)$/
 });
 
 export default function (router: Router) {
 
   Object.keys(models).forEach((name) => {
+    console.log(`Add REST ${name}`);
     const model = models[name].default;
 
     router.route('/' + name + 's')

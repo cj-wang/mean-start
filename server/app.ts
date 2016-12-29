@@ -29,9 +29,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 const apiRouter = express.Router();
 const routes = require('require-all')({
   dirname: __dirname + '/routes/api',
-  filter: /^([^\.].*)\.ts$/
+  filter: /^([^\.].*)\.(ts|js)$/
 });
 Object.keys(routes).forEach((name) => {
+  console.log(`Add route ${name}`);
   routes[name].default(apiRouter);
 });
 app.use('/api', apiRouter);
