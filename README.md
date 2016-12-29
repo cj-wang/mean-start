@@ -1,16 +1,15 @@
 # MEAN Start
 
-**Angular2 + Angular-CLI + Express + Mongoose + Socket.IO. All in TypeScript.** 
+**Angular2 + Angular-CLI + Express + Mongoose + Socket.IO. All in TypeScript. Heroku ready.** 
+
+[DEMO](https://still-everglades-27346.herokuapp.com)
 
 ## Prerequisites
 
-* [Install Node.js and update npm](https://docs.npmjs.com/getting-started/installing-node)
-
-* [Install MongoDB](https://docs.mongodb.com/manual/installation/)
-
-* [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-
-* Install global dependencies:
+* [Node.js and update npm](https://docs.npmjs.com/getting-started/installing-node)
+* [MongoDB](https://docs.mongodb.com/manual/installation/)
+* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* NPM global dependencies:
   ```bash
   npm install -g typescript
   npm install -g angular-cli
@@ -155,7 +154,7 @@ export default function (io: SocketIO.Server) {
 
 Modules in `server/socket.io/` directory are imported by `express` app automatically and called by passing in the `SocketIO.Server`.
 
-### Angular component
+### Angular Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
 
@@ -180,6 +179,23 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Deploying to Github Pages
 
 Run `ng github-pages:deploy` to deploy to Github Pages.
+
+## Deploying to Heroku
+
+Prerequisites:
+* [Heroku CLI](https://cli.heroku.com/)
+* [Heroku account](https://signup.heroku.com/signup/dc).
+
+Commit your changes to git, then deploy your app to Heroku:
+```bash
+heroku create
+git push heroku master
+```
+
+To open the app in your browser, type:
+```bash
+heroku open
+```
 
 ## Further help
 
