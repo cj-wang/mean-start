@@ -6,14 +6,15 @@
 
 ## Prerequisites
 
-* [Node.js and update npm](https://docs.npmjs.com/getting-started/installing-node)
+* [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node)
 * [MongoDB](https://docs.mongodb.com/manual/installation/)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-* NPM global dependencies:
-  ```bash
-  npm install -g typescript
-  npm install -g angular-cli
-  ```
+
+Install global dependencies:
+```bash
+npm install -g typescript
+npm install -g angular-cli
+```
 
 ## Create a new project based on the MEAN Start
 
