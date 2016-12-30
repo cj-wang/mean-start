@@ -1,8 +1,10 @@
 # MEAN Start
 
-**Angular2 + Angular-CLI + Express + Mongoose + Socket.IO. All in TypeScript. Heroku ready.** 
+**Angular2 + Angular-CLI + Express + Mongoose + Socket.IO. All in TypeScript.** 
 
-[DEMO](https://still-everglades-27346.herokuapp.com)
+[DEMO (GAE)](https://mean-start-cj-wang.appspot.com)
+
+[DEMO (Heroku)](https://still-everglades-27346.herokuapp.com)
 
 ## Prerequisites
 
@@ -181,11 +183,27 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 Run `ng github-pages:deploy` to deploy to Github Pages.
 
+## Deploying to GAE
+
+Prerequisites:
+* [Google Cloud Platform project](https://console.cloud.google.com/projectselector/appengine/create?lang=nodejs&st=true&_ga=1.111578756.1002323542.1483082963)
+* [Google Cloud SDK](https://cloud.google.com/sdk/docs/)
+
+Deploy the app to the App Engine flexible environment:
+```bash
+gcloud app deploy
+```
+
+To view your application in the web browser run:
+```bash
+gcloud app browse
+```
+
 ## Deploying to Heroku
 
 Prerequisites:
+* [Heroku account](https://signup.heroku.com/signup/dc)
 * [Heroku CLI](https://cli.heroku.com/)
-* [Heroku account](https://signup.heroku.com/signup/dc).
 
 Commit your changes to git, then deploy your app to Heroku:
 ```bash
