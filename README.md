@@ -56,15 +56,15 @@ npm install
 ## Development server
 Start the dev server:
 ```bash
-npm start
+npm run dev
 ```
 
 Navigate to [http://localhost:4200/](http://localhost:4200/) for the app.
 Shut it down manually with `Ctrl-C`.
 
-The `start` script defined in `package.json` is:
+The `dev` script defined in `package.json` is:
 ```
-"start": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"nodemon --watch server --ext ts --ignore *.spec.ts --exec ts-node --project server server/www\" ",
+"dev": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"nodemon --watch server --ext ts --ignore *.spec.ts --exec ts-node --project server server/www\" ",
 ```
 The script starts 2 servers at the backgroud concurrently:
 
