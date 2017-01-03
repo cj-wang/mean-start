@@ -2,9 +2,9 @@
 
 **Angular2 + Angular-CLI + Express + Mongoose + Socket.IO. All in TypeScript.** 
 
-[DEMO (GAE)](https://mean-start-cj-wang.appspot.com)
-
 [DEMO (Heroku)](https://still-everglades-27346.herokuapp.com)
+
+[DEMO (GAE)](https://mean-start-cj-wang.appspot.com) (Socket.IO doesn't work due to [this issue](https://code.google.com/p/googleappengine/issues/detail?id=2535))
 
 ## Prerequisites
 
@@ -64,11 +64,7 @@ npm run dev
 Navigate to [http://localhost:4200/](http://localhost:4200/) for the app.
 Shut it down manually with `Ctrl-C`.
 
-The `dev` script defined in `package.json` is:
-```
-"dev": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"nodemon --watch server --ext ts --ignore *.spec.ts --exec ts-node --project server server/www\" ",
-```
-The script starts 2 servers at the backgroud concurrently:
+The `npm run dev` script starts 2 servers concurrently:
 
 * **angular-cli dev server** - starts at `http://localhost:4200/`, serving the `angular` app.
 The `angular` app will automatically reload if you change any of the client source files.
