@@ -8,6 +8,7 @@
     "postinstall": "npm run build",
     "build": "ng build -prod && tsc --project server",
     "start": "nodemon dist/www.js",
+    "build-start": "npm run build && npm start",
     "dev": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"npm run api\" ",
     "api": "nodemon --watch server --ext ts --ignore *.spec.ts --exec ts-node --project server server/www ",
     "lint": "tslint \"client/**/*.ts\"",
