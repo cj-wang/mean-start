@@ -2,9 +2,11 @@
 
 **Angular2 + Angular-CLI + Express + Mongoose + Socket.IO. All in TypeScript.** 
 
-[DEMO (Heroku)](https://still-everglades-27346.herokuapp.com)
+[DEMO (AWS EB)](http://node-express-env.upk8qnnc69.us-west-2.elasticbeanstalk.com)
 
-[DEMO (GAE)](https://mean-start-cj-wang.appspot.com) (Socket.IO doesn't work due to [this issue](https://code.google.com/p/googleappengine/issues/detail?id=2535))
+[DEMO (GAE)](https://mean-start-cj-wang.appspot.com)
+
+[DEMO (Heroku)](https://still-everglades-27346.herokuapp.com)
 
 ## Prerequisites
 
@@ -179,10 +181,28 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 Run `ng github-pages:deploy` to deploy to Github Pages.
 
-## Deploying to GAE
+## Deploying to AWS Elastic Beanstalk
 
 Prerequisites:
-* [Google Cloud Platform project](https://console.cloud.google.com/projectselector/appengine/create?lang=nodejs&st=true&_ga=1.111578756.1002323542.1483082963)
+* [AWS Account](https://console.aws.amazon.com/elasticbeanstalk)
+* [AWS EB CLI](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html)
+
+Deploy the app to Elastic Beanstalk:
+```bash
+eb init --platform node.js --region us-west-2
+eb create --instance_type t2.small --sample node-express-env
+eb deploy
+```
+
+To view your application in the web browser run:
+```bash
+eb open
+```
+
+## Deploying to Google App Engine
+
+Prerequisites:
+* [Create GAE Project](https://console.cloud.google.com/projectselector/appengine/create?lang=nodejs&st=true)
 * [Google Cloud SDK](https://cloud.google.com/sdk/docs/)
 
 Deploy the app to the App Engine flexible environment:
@@ -198,7 +218,7 @@ gcloud app browse
 ## Deploying to Heroku
 
 Prerequisites:
-* [Heroku account](https://signup.heroku.com/signup/dc)
+* [Heroku Account](https://signup.heroku.com/signup/dc)
 * [Heroku CLI](https://cli.heroku.com/)
 
 Commit your changes to git, then deploy your app to Heroku:
