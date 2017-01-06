@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PostsComponent } from './demo/posts/posts.component';
 
+import { HomeComponent } from './home/home.component';
+
 import { PostsService } from './demo/posts/posts.service';
 import { ChatComponent } from './demo/chat/chat.component';
 import { HeroFormComponent } from './demo/form/hero-form.component';
@@ -14,8 +16,7 @@ import { HeroFormComponent } from './demo/form/hero-form.component';
 const ROUTES = [
   {
     path: '',
-    redirectTo: 'posts',
-    pathMatch: 'full'
+    component: HomeComponent
   },
   {
     path: 'posts',
@@ -34,6 +35,7 @@ const ROUTES = [
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     PostsComponent,
     ChatComponent,
     HeroFormComponent

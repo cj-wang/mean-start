@@ -1,9 +1,44 @@
-<h1>
-  {{title}}
-</h1>
-<div>
-  <a routerLink="/posts" routerLinkActive="active">REST Demo</a> |
-  <a routerLink="/chat" routerLinkActive="active">Chat Demo</a> |
-  <a routerLink="/form" routerLinkActive="active">Hero Form</a>
+<!-- Fixed navbar -->
+<div class="pos-f-t">
+  <nav class="navbar navbar-light bg-faded navbar-static-top">
+    <div class="container">
+      <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation"></button>
+      <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+        <a class="navbar-brand" href="#">MEAN Start</a>
+        <ul class="nav navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/posts" routerLinkActive="active">REST Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/chat" routerLinkActive="active">Chat Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/form" routerLinkActive="active">Form Demo</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline float-lg-right">
+          <input class="form-control" type="text" placeholder="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 </div>
-<router-outlet></router-outlet>
+
+<!-- Page content -->
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
