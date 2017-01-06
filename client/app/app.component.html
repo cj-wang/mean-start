@@ -10,22 +10,12 @@
           <li class="nav-item active">
             <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/posts" routerLinkActive="active">REST Demo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/chat" routerLinkActive="active">Chat Demo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/form" routerLinkActive="active">Form Demo</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+          <li class="nav-item dropdown" ngbDropdown>
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="menu-demo" ngbDropdownToggle>Demos</a>
+            <div class="dropdown-menu" aria-labelledby="menu-demo">
+              <a class="dropdown-item" routerLink="/posts" routerLinkActive="menu-active">REST</a>
+              <a class="dropdown-item" routerLink="/chat" routerLinkActive="menu-active">Chat</a>
+              <a class="dropdown-item" routerLink="/form" routerLinkActive="menu-active">Form</a>
             </div>
           </li>
         </ul>

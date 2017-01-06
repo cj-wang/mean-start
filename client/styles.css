@@ -22,3 +22,8 @@ body {
 .footer a:hover {
   color: #0275d8;
 }
+
+.menu-active {
+  font-weight: 500;
+  background-color: #f5f5f5;
+}
