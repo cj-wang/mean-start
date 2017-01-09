@@ -6,7 +6,7 @@ html {
   min-height: 100%;
 }
 body {
-  margin: 60px 0 70px 0;
+  margin-bottom: 70px;
 }
 .footer {
   position: absolute;
