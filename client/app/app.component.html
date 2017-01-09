@@ -1,5 +1,5 @@
 <!-- navbar -->
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded mb-1">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
   <div class="container">
     <button class="navbar-toggler hidden-lg-up float-xs-right" type="button" 
         (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarToggler">
@@ -30,6 +30,6 @@
 </nav>
 
 <!-- Page content -->
-<div class="container">
+<div class="container py-1">
   <router-outlet></router-outlet>
 </div>
