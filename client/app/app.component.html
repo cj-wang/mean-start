@@ -12,12 +12,10 @@
         <li class="nav-item active">
           <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item dropdown" ngbDropdown>
-          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="menu-demo" ngbDropdownToggle>Demos</a>
-          <div class="dropdown-menu" aria-labelledby="menu-demo">
-            <a class="dropdown-item" routerLink="/posts" routerLinkActive="font-weight-bold bg-faded">REST</a>
-            <a class="dropdown-item" routerLink="/chat" routerLinkActive="font-weight-bold bg-faded">Chat</a>
-            <a class="dropdown-item" routerLink="/form" routerLinkActive="font-weight-bold bg-faded">Form</a>
+        <li class="nav-item dropdown" ngbDropdown *ngFor="let m of menu; let i = index">
+          <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="menu-{{i}}" ngbDropdownToggle>{{m.title}}</a>
+          <div class="dropdown-menu" [attr.aria-labelledby]="'menu-' + i">
+            <a class="dropdown-item" *ngFor="let sub of m.sub" routerLink="{{sub.link}}" routerLinkActive="font-weight-bold bg-faded">{{sub.title}}</a>
           </div>
         </li>
       </ul>

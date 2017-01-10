@@ -7,10 +7,10 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { PostsComponent } from './demo/posts/posts.component';
-
 import { HomeComponent } from './home/home.component';
+import { MenuService } from './home/menu.service';
 
+import { PostsComponent } from './demo/posts/posts.component';
 import { PostsService } from './demo/posts/posts.service';
 import { ChatComponent } from './demo/chat/chat.component';
 import { HeroFormComponent } from './demo/form/hero-form.component';
@@ -49,7 +49,7 @@ const ROUTES = [
     RouterModule.forRoot(ROUTES),
     NgbModule.forRoot()
   ],
-  providers: [PostsService],
+  providers: [MenuService, PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
