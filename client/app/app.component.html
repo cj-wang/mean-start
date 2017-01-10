@@ -1,27 +1,29 @@
 <!-- navbar -->
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <div class="container">
-    <button class="navbar-toggler hidden-lg-up float-xs-right" type="button" 
-        (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarToggler">
+  <div class="container mx-0 mx-sm-auto">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="navbarExpanded = !navbarExpanded"
+      [attr.aria-expanded]="navbarExpanded">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">MEAN Start</a>
 
-    <div id="navbarToggler" [ngbCollapse]="isCollapsed">
-      <ul class="nav navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="!navbarExpanded">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="/" (click)="navbarExpanded = false">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown" ngbDropdown *ngFor="let m of menu; let i = index">
           <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="menu-{{i}}" ngbDropdownToggle>{{m.title}}</a>
           <div class="dropdown-menu" [attr.aria-labelledby]="'menu-' + i">
-            <a class="dropdown-item" *ngFor="let sub of m.sub" routerLink="{{sub.link}}" routerLinkActive="font-weight-bold bg-faded">{{sub.title}}</a>
+            <a class="dropdown-item" *ngFor="let sub of m.sub" routerLink="{{sub.link}}" routerLinkActive="font-weight-bold bg-faded"
+              (click)="navbarExpanded = false">{{sub.title}}</a>
           </div>
         </li>
       </ul>
-      <form class="form-inline float-lg-right">
-        <input class="form-control" type="text" placeholder="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
   </div>
