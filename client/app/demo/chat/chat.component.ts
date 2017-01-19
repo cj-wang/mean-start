@@ -1,5 +1,5 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import * as io from 'socket.io-client';
+import * as sio from 'socket.io-client';
 
 @Component({
   selector: 'app-chat',
@@ -8,12 +8,12 @@ import * as io from 'socket.io-client';
 })
 export class ChatComponent implements OnInit {
   msgs = ['aa', 'bb'];
-  socket: any;
+  socket: SocketIOClient.Socket;
 
   constructor(private zone: NgZone) { }
 
   ngOnInit() {
-    this.socket = io();
+    this.socket = sio();
     this.socket.on('chat message', (msg: string) => {
       this.zone.run(() => {
         this.msgs.push(msg)
