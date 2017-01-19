@@ -1,6 +1,6 @@
 import * as http from 'http';
 import * as debugModule from 'debug';
-import * as io from 'socket.io';
+import * as sio from 'socket.io';
 
 import app from './app';
 
@@ -20,7 +20,7 @@ const sockets = require('require-all')({
 });
 Object.keys(sockets).forEach((name) => {
   console.log(`Add socket.io ${name}`);
-  sockets[name].default(io(server));
+  sockets[name].default(sio(server));
 });
 
 server.listen(port);
