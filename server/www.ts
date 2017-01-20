@@ -1,6 +1,5 @@
 import * as http from 'http';
 import * as debugModule from 'debug';
-import * as sio from 'socket.io';
 
 import app from './app';
 
@@ -14,14 +13,18 @@ app.set('port', port);
 const server = http.createServer(app);
 
 // socket.io
-const sockets = require('require-all')({
+const sioModules = require('require-all')({
   dirname: __dirname + '/socket.io',
   filter: /^([^\.].*)\.(ts|js)$/
 });
-Object.keys(sockets).forEach((name) => {
-  console.log(`Add socket.io ${name}`);
-  sockets[name].default(sio(server));
-});
+for (let name of Object.keys(sioModules)) {
+  const exported = sioModules[name].default;
+  if (exported && exported.constructor.name === 'Server') {
+    console.log(`Add socket.io server ${name}`);
+    const sioServer = exported as SocketIO.Server;
+    sioServer.attach(server);
+  }
+}
 
 server.listen(port);
 server.on('error', onError);

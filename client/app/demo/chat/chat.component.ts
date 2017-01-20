@@ -13,7 +13,9 @@ export class ChatComponent implements OnInit {
   constructor(private zone: NgZone) { }
 
   ngOnInit() {
-    this.socket = sio();
+    this.socket = sio({
+      path: '/socket.io/chat'
+    });
     this.socket.on('chat message', (msg: string) => {
       this.zone.run(() => {
         this.msgs.push(msg)

@@ -137,23 +137,30 @@ All the APIs are exposed with the root URI `/api` prepended, e.g. `/api/test`.
 
 ### Socket.IO
 
-Add Socket.IO module in `server/socket.io/` directory, e.g. `server/socket.io/test.ts`:
+Add Socket.IO module in `server/socket.io/` directory, e.g. `server/socket.io/chat.ts`:
 ```TypeScript
-export default function (io: SocketIO.Server) {
-  io.on('connection', function (socket) {
-    console.log('a user connected');
-    socket.on('chat message', function (msg) {
-      console.log('message: ' + msg);
-      io.emit('chat message', msg);
-    });
-    socket.on('disconnect', function () {
-      console.log('user disconnected');
-    });
+import * as sio from 'socket.io';
+
+const chatServer = sio({
+  path: '/socket.io/chat'
+});
+
+chatServer.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('chat message', (msg) => {
+    console.log('message: ' + msg);
+    chatServer.emit('chat message', msg);
   });
-};
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+});
+
+export default chatServer;
 ```
 
-Modules in `server/socket.io/` directory are imported by `express` app automatically and called by passing in the `SocketIO.Server`.
+All the Socket.IO modules must have a default export of type `SocketIO.Server`.
+They will be imported by `www.ts` and attached to the `express` server automatically.
 
 ### Angular Code scaffolding
 
