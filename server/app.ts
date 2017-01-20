@@ -25,17 +25,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/', index);
 // app.use('/users', users);
 
-// API routes
-const apiRouter = express.Router();
-const routes = require('require-all')({
-  dirname: __dirname + '/routes/api',
-  filter: /^([^\.].*)\.(ts|js)$/
+// routes
+const routeModules = require('require-all')({
+  dirname: __dirname + '/routes',
+  filter: /^([^\.].*)\.(ts|js)$/,
+  map: name => '/' + name
 });
-Object.keys(routes).forEach((name) => {
-  console.log(`Add route ${name}`);
-  routes[name].default(apiRouter);
-});
-app.use('/api', apiRouter);
+function resolve(root: string, modules): void {
+  for (let name of Object.keys(modules)) {
+    if (!name.startsWith('/')) {
+      return;
+    }
+    const module = modules[name];
+    if (module.default && module.default.route) {
+      console.log(`Add router ${root + name}`);
+      const router = module.default as express.Router;
+      app.use(root, router);
+    } else {
+      resolve(root + name, module);
+    }
+  }
+}
+resolve('', routeModules);
 
 // Default to main page, angular route takes over
 app.use((req, res) => {

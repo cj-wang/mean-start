@@ -83,7 +83,7 @@ You're ready to write your application.
 
 ### Model class
 
-Add `mongoose` model class in `server/models/` directory, e.g. `server/models/user.ts`:
+Add `mongoose` model classes in `server/models/` directory, e.g. `server/models/user.ts`:
 ```TypeScript
 import * as mongoose from 'mongoose';
 
@@ -118,26 +118,28 @@ E.g. with the `User` model added, below REST APIs are created automatically:
 
 ### Custom API
 
-Add API module in `server/routes/api/` directory, e.g. `server/routes/api/test.ts`:
+Add API modules in `server/routes/api/` directory, e.g. `server/routes/api/demo/test.ts`:
 ```TypeScript
 import { Router } from 'express';
 
-export default function (router: Router) {
-  router.get('/test', (req, res) => {
-    // Implement the API for GET /api/test
-    res.send('Test API works');
-  });
-};
+const testRouter = Router();
+
+testRouter.get('/test', (req, res) => {
+  res.send('Test API works');
+});
+
+export default testRouter;
 ```
 
-Modules in `server/routes/api/` directory are imported by `express` app automatically and called by passing in the Router. 
-All the APIs are exposed with the root URI `/api` prepended, e.g. `/api/test`.
+All the API modules must have a default export of type `express.Router`.
+They will be imported by `app.ts` and be added to the `express` app automatically.
+The root of the Routers correspond to the sub directories starting from `api/`, so the path of above API is `/api/demo/test`.
 
 >TODO: Role-based access control required.
 
 ### Socket.IO
 
-Add Socket.IO module in `server/socket.io/` directory, e.g. `server/socket.io/chat.ts`:
+Add Socket.IO modules in `server/socket.io/` directory, e.g. `server/socket.io/chat.ts`:
 ```TypeScript
 import * as sio from 'socket.io';
 
@@ -160,7 +162,7 @@ export default chatServer;
 ```
 
 All the Socket.IO modules must have a default export of type `SocketIO.Server`.
-They will be imported by `www.ts` and attached to the `express` server automatically.
+They will be imported by `www.ts` and be attached to the `express` server automatically.
 
 ### Angular Code scaffolding
 

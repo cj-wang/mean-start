@@ -1,6 +1,12 @@
 import { Router } from 'express';
 import * as request from 'request';
 
+const gaeExtIpRouter = Router();
+
+gaeExtIpRouter.get('/gae-ext-ip', (req, res) => {
+  res.send(gaeExtIP);
+});
+
 /**
  * https://github.com/GoogleCloudPlatform/nodejs-docs-samples/tree/master/appengine/websockets
  */
@@ -22,7 +28,7 @@ const options = {
 };
 
 request(options, (err, resp, body) => {
-  if (! err && resp.statusCode === 200) {
+  if (!err && resp.statusCode === 200) {
     gaeExtIP = body + ':' + process.env.PORT;
     console.log(`GAE external IP: ${gaeExtIP}`);
   } else {
@@ -31,8 +37,4 @@ request(options, (err, resp, body) => {
 });
 // [END external_ip]
 
-export default function (router: Router) {
-  router.get('/gae-ext-ip', (req, res) => {
-    res.send(gaeExtIP);
-  });
-};
+export default gaeExtIpRouter;

@@ -10,7 +10,7 @@ export class PostsService {
 
   // Get all posts from the API
   getAllPosts() {
-    return this.http.get('/api/test')
+    return this.http.get('/api/demo/posts')
       .map(res => res.json());
   }
 }
