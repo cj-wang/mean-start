@@ -5,7 +5,11 @@ export class MeanStartPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getBrandText() {
+    return element(by.css('app-root .navbar-brand')).getText();
+  }
+
+  getHomeMenu() {
+    return element(by.css('app-root [routerlink="/"]')).getText();
   }
 }

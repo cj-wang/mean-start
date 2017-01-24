@@ -7,8 +7,13 @@ describe('mean-start App', function() {
     page = new MeanStartPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display brand', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getBrandText()).toEqual('MEAN Start');
+  });
+
+  it('should display home menu', () => {
+    page.navigateTo();
+    expect(page.getHomeMenu()).toContain('Home');
   });
 });
