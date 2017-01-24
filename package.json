@@ -11,7 +11,7 @@
     "build-start": "npm run build && npm start",
     "dev": "concurrently \"ng serve --proxy-config proxy.conf.json\" \"npm run api\" ",
     "api": "nodemon --watch server --ext ts --ignore *.spec.ts --exec ts-node --project server server/www ",
-    "lint": "tslint \"client/**/*.ts\"",
+    "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
     "test": "ng test",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "e2e": "protractor"
@@ -39,7 +39,7 @@
     "@types/request": "0.0.39",
     "@types/socket.io": "^1.4.27",
     "@types/socket.io-client": "^1.4.29",
-    "angular-cli": "1.0.0-beta.24",
+    "angular-cli": "1.0.0-beta.26",
     "axios": "^0.15.3",
     "body-parser": "^1.15.2",
     "bootstrap": "4.0.0-alpha.6",
@@ -71,7 +71,7 @@
     "karma-remap-istanbul": "^0.2.1",
     "protractor": "~4.0.13",
     "ts-node": "1.2.1",
-    "tslint": "^4.0.2"
+    "tslint": "^4.3.0"
   },
   "engines": {
     "node": "6.9.2"
