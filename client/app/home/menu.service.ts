@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from "rxjs/Rx";
 
 @Injectable()
 export class MenuService {
@@ -8,7 +9,7 @@ export class MenuService {
   constructor() { }
 
   getMenu() {
-    return this.menu;
+    return Observable.of(this.menu);
   }
 
 }
