@@ -2,11 +2,7 @@
 
 **Angular2 + Angular-CLI + Express + Mongoose + Socket.IO. All in TypeScript.** 
 
-[DEMO (AWS EB)](http://node-express-env.upk8qnnc69.us-west-2.elasticbeanstalk.com)
-
-[DEMO (GAE)](https://mean-start-cj-wang.appspot.com)
-
-[DEMO (Heroku)](https://still-everglades-27346.herokuapp.com)
+[DEMO](https://still-everglades-27346.herokuapp.com)
 
 ## Prerequisites
 
@@ -179,7 +175,8 @@ The `dist/` directory is the full distribution of the app.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test` to execute the unit tests for both the Angular app and the server APIs concurrently.
+You can also run `npm run test-ng` or `npm run test-api` to test the Angular app or the server APIs separately.
 
 ## Running end-to-end tests
 

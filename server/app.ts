@@ -28,7 +28,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routes
 const routeModules = require('require-all')({
   dirname: __dirname + '/routes',
-  filter: /^([^\.].*)\.(ts|js)$/,
+  filter: (filename: string) => {
+    filename = filename.toLowerCase();
+    return (filename.endsWith('.ts') && !filename.endsWith('.spec.ts'))
+      || (filename.endsWith('.js') && !filename.endsWith('.spec.js'));
+  },
   map: name => '/' + name
 });
 function resolve(root: string, modules): void {
