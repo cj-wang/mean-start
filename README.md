@@ -116,20 +116,21 @@ E.g. with the `User` model added, below REST APIs are created automatically:
 
 Add API modules in `server/routes/api/` directory, e.g. `server/routes/api/demo/test.ts`:
 ```TypeScript
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 
-const testRouter = Router();
+export default Router()
+  .get('/test', testHandler);
 
-testRouter.get('/test', (req, res) => {
+export function testHandler(req: Request, res: Response) {
   res.send('Test API works');
-});
-
-export default testRouter;
+};
 ```
 
 All the API modules must have a default export of type `express.Router`.
 They will be imported by `app.ts` and be added to the `express` app automatically.
 The root of the Routers correspond to the sub directories starting from `api/`, so the path of above API is `/api/demo/test`.
+
+The handler functions should also be exported for unit testing.
 
 >TODO: Role-based access control required.
 
