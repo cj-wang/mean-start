@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "",
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -10,8 +9,10 @@
     "outDir": "../dist",
     "sourceMap": true,
     "target": "es5",
+    "baseUrl": "types",
     "typeRoots": [
-      "../node_modules/@types"
+      "../node_modules/@types",
+      "types"
     ]
   }
 }
