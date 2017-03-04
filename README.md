@@ -12,8 +12,7 @@
 
 Install global dependencies:
 ```bash
-npm install -g typescript
-npm install -g angular-cli
+npm install -g typescript angular-cli concurrently
 ```
 
 ## Create a new project based on the MEAN Start
