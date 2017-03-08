@@ -30,8 +30,10 @@ const routeModules = require('require-all')({
   dirname: __dirname + '/routes',
   filter: (filename: string) => {
     filename = filename.toLowerCase();
-    return (filename.endsWith('.ts') && !filename.endsWith('.spec.ts'))
-      || (filename.endsWith('.js') && !filename.endsWith('.spec.js'));
+    if ((filename.endsWith('.ts') && !filename.endsWith('.spec.ts'))
+      || (filename.endsWith('.js') && !filename.endsWith('.spec.js'))) {
+      return filename.substr(0, filename.length - 3);
+    }
   },
   map: name => '/' + name
 });

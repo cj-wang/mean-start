@@ -17,8 +17,10 @@ const sioModules = require('require-all')({
   dirname: __dirname + '/socket.io',
   filter: (filename: string) => {
     filename = filename.toLowerCase();
-    return (filename.endsWith('.ts') && !filename.endsWith('.spec.ts'))
-      || (filename.endsWith('.js') && !filename.endsWith('.spec.js'));
+    if ((filename.endsWith('.ts') && !filename.endsWith('.spec.ts'))
+      || (filename.endsWith('.js') && !filename.endsWith('.spec.js'))) {
+      return filename.substr(0, filename.length - 3);
+    }
   }
 });
 for (let name of Object.keys(sioModules)) {
