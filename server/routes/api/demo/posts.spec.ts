@@ -3,8 +3,8 @@ import * as nock from 'nock';
 
 import { getPosts } from './posts';
 
-describe('getPosts', function () {
-  it('should return the posts', function (done) {
+describe('getPosts', () => {
+  it('should return the posts', (done) => {
     // Expected data
     const posts = [{
       userId: '1',

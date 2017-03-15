@@ -2,8 +2,8 @@ import * as httpMocks from "node-mocks-http";
 
 import { testHandler } from './test';
 
-describe('Test route', function () {
-  it('should return "Test API works"', function () {
+describe('testHandler', () => {
+  it('should return "Test API works"', () => {
     const req = httpMocks.createRequest();
     const res = httpMocks.createResponse();
     testHandler(req, res);
