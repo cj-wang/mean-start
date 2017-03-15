@@ -42,6 +42,7 @@
     "@types/request": "0.0.39",
     "@types/socket.io": "^1.4.27",
     "@types/socket.io-client": "^1.4.29",
+    "@types/supertest": "^2.0.0",
     "angular-cli": "1.0.0-beta.26",
     "axios": "^0.15.3",
     "body-parser": "^1.15.2",
@@ -79,6 +80,7 @@
     "node-mocks-http": "^1.6.1",
     "nodemon": "^1.11.0",
     "protractor": "~4.0.13",
+    "supertest": "^3.0.0",
     "ts-node": "1.2.1",
     "tslint": "^4.3.0"
   },
