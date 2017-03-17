@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["es6", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "../dist",
+    "sourceMap": true,
+    "target": "es5",
+    "baseUrl": "../types",
+    "typeRoots": [
+      "../node_modules/@types",
+      "../types"
+    ]
+  },
+  "include": [
+    "**/*.spec.ts"
+  ]
+}

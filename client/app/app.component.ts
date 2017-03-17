@@ -9,6 +9,7 @@ import { MenuService } from './home/menu.service';
 export class AppComponent implements OnInit {
 
   menu: any;
+  navbarExpanded = false;
 
   constructor(private menuService: MenuService) { }
 

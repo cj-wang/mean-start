@@ -18,7 +18,7 @@ export class ChatComponent implements OnInit {
     });
     this.socket.on('chat message', (msg: string) => {
       this.zone.run(() => {
-        this.msgs.push(msg)
+        this.msgs.push(msg);
       });
     });
   }

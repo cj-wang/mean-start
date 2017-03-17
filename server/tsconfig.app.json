@@ -1,18 +1,21 @@
 {
   "compilerOptions": {
-    "baseUrl": "",
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": ["es6", "dom"],
-    "mapRoot": "./",
-    "module": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "../dist/out-tsc",
+    "outDir": "../dist",
     "sourceMap": true,
     "target": "es5",
+    "baseUrl": "../types",
     "typeRoots": [
-      "../node_modules/@types"
+      "../node_modules/@types",
+      "../types"
     ]
-  }
+  },
+  "exclude": [
+    "**/*.spec.ts"
+  ]
 }

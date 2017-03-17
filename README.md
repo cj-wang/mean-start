@@ -1,6 +1,6 @@
 # MEAN Start
 
-**Angular2 + Angular-CLI + Express + Mongoose + Socket.IO. All in TypeScript.** 
+**Angular2 + Angular CLI + Express + Mongoose + Socket.IO. All in TypeScript.** 
 
 [DEMO](https://still-everglades-27346.herokuapp.com)
 
@@ -13,7 +13,7 @@
 Install global dependencies:
 ```bash
 npm install -g typescript
-npm install -g angular-cli
+npm install -g @angular/cli
 ```
 
 ## Create a new project based on the MEAN Start
@@ -54,6 +54,7 @@ npm install
 ```
 
 ## Development server
+
 Start the dev server:
 ```bash
 npm run dev
@@ -190,10 +191,6 @@ API integration test files must be named as `*.api.spec.ts` to be separated from
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
 
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
 ## Deploying to AWS Elastic Beanstalk
 
 Prerequisites:
@@ -247,4 +244,4 @@ heroku open
 
 ## Further help
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
