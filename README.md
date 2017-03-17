@@ -176,8 +176,14 @@ The `dist/` directory is the full distribution of the app.
 
 ## Running unit tests
 
-Run `npm test` to execute the unit tests for both the Angular app and the server APIs concurrently.
-You can also run `npm run test-ng` or `npm run test-api` to test the Angular app or the server APIs separately.
+Run `npm test` to execute the unit tests for both the Angular app and the server app concurrently.
+You can also run `npm run test-ng` or `npm run test-server` to test the Angular app or the server app separately.
+
+## Running server API integration tests
+
+Run `npm run test-api` to execute the server API integration tests.
+
+API integration test files must be named as `*.api.spec.ts` to be separated from unit test files. 
 
 ## Running end-to-end tests
 
