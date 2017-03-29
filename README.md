@@ -1,6 +1,6 @@
 # MEAN Start
 
-**Angular2 + Angular CLI + Express + Mongoose + Socket.IO. All in TypeScript.** 
+**Angular + Angular CLI + Express + Mongoose + Socket.IO. All in TypeScript.** 
 
 [DEMO](https://still-everglades-27346.herokuapp.com)
 
@@ -24,28 +24,6 @@ git clone https://github.com/cj-wang/mean-start my-proj
 cd my-proj
 ```
 
-Discard everything "git-like" by deleting the `.git` folder:
-```bash
-rm -rf .git  # non-Windows
-rd .git /S/Q # windows
-```
-
-### Create a new git repo
-
-Initialize this project as a *local git repo* and make the first commit:
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-```
-
-Create a *remote repository* for this project on the service of your choice.
-
-Grab its address (e.g. *`https://github.com/<my-org>/my-proj.git`*) and push the *local repo* to the *remote*:
-```bash
-git remote add origin <repo-address>
-git push -u origin master
-```
 ## Install npm packages
 
 Install the npm packages described in the `package.json`:
