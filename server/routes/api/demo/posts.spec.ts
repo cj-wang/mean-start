@@ -1,4 +1,4 @@
-import * as httpMocks from "node-mocks-http";
+import * as httpMocks from 'node-mocks-http';
 import * as nock from 'nock';
 
 import { getPosts } from './posts';

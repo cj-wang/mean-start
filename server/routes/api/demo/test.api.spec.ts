@@ -1,4 +1,4 @@
-import * as supertest from "supertest";
+import * as supertest from 'supertest';
 
 import app from '../../../app';
 
@@ -10,6 +10,6 @@ describe('GET /api/demo/test', () => {
       .then((response) => {
         expect(response.text).toBe('Test API works');
         done();
-      })
+      });
   });
 });

@@ -1,4 +1,4 @@
-import * as httpMocks from "node-mocks-http";
+import * as httpMocks from 'node-mocks-http';
 
 import { testHandler } from './test';
 

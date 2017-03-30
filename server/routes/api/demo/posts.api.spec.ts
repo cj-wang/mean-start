@@ -1,4 +1,4 @@
-import * as supertest from "supertest";
+import * as supertest from 'supertest';
 
 import app from '../../../app';
 
@@ -17,7 +17,7 @@ describe('GET /api/demo/posts', () => {
           body: jasmine.any(String)
         });
         done();
-      })
+      });
   });
 
 });

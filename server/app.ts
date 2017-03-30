@@ -15,7 +15,7 @@ const app: express.Express = express();
 // app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+// app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -38,7 +38,7 @@ const routeModules = require('require-all')({
   map: name => '/' + name
 });
 function resolve(root: string, modules): void {
-  for (let name of Object.keys(modules)) {
+  for (const name of Object.keys(modules)) {
     if (!name.startsWith('/')) {
       return;
     }
@@ -100,5 +100,5 @@ mongoose.connect('mongodb://localhost/test');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-  console.log('MongoDB connected')
+  console.log('MongoDB connected');
 });

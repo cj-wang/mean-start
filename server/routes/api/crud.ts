@@ -14,7 +14,7 @@ Object.keys(models).forEach((name) => {
   crudRouter.route('/' + name + 's')
     // C
     .post((req, res) => {
-      var m = new model();
+      const m = new model();
       Object.assign(m, req.body);
       m.save((err) => {
         if (err) {
@@ -54,9 +54,9 @@ Object.keys(models).forEach((name) => {
           return;
         }
         Object.assign(m, req.body);
-        m.save((err) => {
-          if (err) {
-            res.json({ error: err });
+        m.save((errSave) => {
+          if (errSave) {
+            res.json({ error: errSave });
           } else {
             res.json(m);
           }
