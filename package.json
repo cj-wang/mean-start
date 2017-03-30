@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "build": "rimraf dist && ng build --prod && tsc --project server/tsconfig.app.json",
-    "prestart": "npm run build",
+    "prestart": "npm run build &",
     "start": "pm2 start dist/www.js --no-daemon",
     "dev": "concurrently \"ng serve --progress false --proxy-config proxy.conf.json\" \"npm run api\" ",
     "api": "cd server && nodemon --ext ts --ignore *.spec.ts --exec ts-node www",
