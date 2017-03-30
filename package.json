@@ -4,9 +4,10 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "build": "rimraf dist && tsc --project server/tsconfig.app.json && ng build --prod",
-    "prestart": "rimraf dist && tsc --project server/tsconfig.app.json && ng build --prod &",
+    "postinstall": "npm run build",
+    "build": "rimraf dist && ng build && tsc --project server/tsconfig.app.json",
     "start": "pm2 start dist/www.js --no-daemon",
+    "build-start": "npm run build && npm start",
     "dev": "concurrently \"ng serve --progress false --proxy-config proxy.conf.json\" \"npm run api\" ",
     "api": "cd server && nodemon --ext ts --ignore *.spec.ts --exec ts-node www",
     "test": "concurrently \"ng test --progress false\" \"npm run test-server\" ",
