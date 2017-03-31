@@ -5,8 +5,8 @@ import * as AWS from 'aws-sdk';
 
 // Loading Credentials. For DEMO purpose only
 // http://docs.aws.amazon.com/zh_cn/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html
-process.env['accessKeyId'] = 'AKIAJ2KE6BEDXT7AKE3Q';
-process.env['secretAccessKey'] = '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';
+process.env['AWS_ACCESS_KEY_ID'] = 'AKIAJ2KE6BEDXT7AKE3Q';
+process.env['AWS_SECRET_ACCESS_KEY'] = '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';
 
 // Create an S3 client
 const s3 = new AWS.S3();
