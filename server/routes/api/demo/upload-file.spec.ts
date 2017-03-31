@@ -1,28 +1,28 @@
 import * as httpMocks from 'node-mocks-http';
 import { Express } from 'express';
 
-import { files, uploadFile, listFiles, download, remove, removeAll } from './upload-file';
+import { files, uploadFile, listFiles, remove, removeAll } from './upload-file';
 
 describe('uploadFile', () => {
   it('should create a file entry', () => {
     const req = httpMocks.createRequest({});
     req.file = {
       fieldname: 'file',
+      filename: 'abc.txt',
       originalname: 'abc.txt',
       encoding: '7bit',
       mimetype: 'application/octet-stream',
       size: 123,
-      destination: 'upload/',
-      filename: 'abcde',
-      path: 'upload\\abcde',
-      buffer: null
+      destination: '',
+      path: '',
+      buffer: null,
     };
     const res = httpMocks.createResponse();
     uploadFile(req, res);
     expect(res._getStatusCode()).toBe(200);
     expect(res._isEndCalled()).toBeTruthy();
     expect(files[req.file.filename]).toBe(req.file);
-    expect(files[req.file.filename].uploadDate).toBeTruthy();
+    expect(files[req.file.filename]['uploadDate']).toBeTruthy();
   });
 });
 
@@ -35,7 +35,7 @@ describe('listFiles', () => {
     expect(res._isEndCalled()).toBeTruthy();
     expect(res._isJSON()).toBeTruthy();
     expect(JSON.parse(res._getData()).length).toBe(1);
-    expect(JSON.parse(res._getData())[0].filename).toBe('abcde');
+    expect(JSON.parse(res._getData())[0].filename).toBe('abc.txt');
   });
 });
 

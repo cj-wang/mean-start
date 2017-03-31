@@ -12,18 +12,18 @@ export class FileListComponent implements OnInit {
 
   constructor(private fileListService: FileListService) { }
 
+  ngOnInit() {
+    this.refresh();
+  }
+
   refresh() {
     this.fileListService.getFiles().subscribe((files) => {
       this.files = files;
     });
   }
 
-  ngOnInit() {
-    this.refresh();
-  }
-
   remove(file) {
-    this.fileListService.remove(file.filename).subscribe(() => {
+    this.fileListService.remove(file.key).subscribe(() => {
       this.refresh();
     });
   }

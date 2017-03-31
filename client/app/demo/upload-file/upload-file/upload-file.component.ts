@@ -11,7 +11,7 @@ export class UploadFileComponent implements OnInit {
   hasBaseDropZoneOver = false;
 
   uploader = new FileUploader({
-    url: '/api/demo/files'
+    url: '/api/demo/upload-file'
   });
 
   constructor() { }

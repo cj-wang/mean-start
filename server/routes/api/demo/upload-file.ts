@@ -1,49 +1,42 @@
 import { Express, Router, Request, Response } from 'express';
-import * as fs from 'fs';
 import * as multer from 'multer';
+import * as multerS3 from 'multer-s3';
+import * as AWS from 'aws-sdk';
 
-const DIR = 'upload/';
+// Loading Credentials. For DEMO purpose only
+// http://docs.aws.amazon.com/zh_cn/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html
+process.env['accessKeyId'] = 'AKIAJ2KE6BEDXT7AKE3Q';
+process.env['secretAccessKey'] = '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';
 
+// Create an S3 client
+const s3 = new AWS.S3();
+const bucketName = 'cj-wang-mean-start-upload-file';
+
+// Setup multer with multerS3
 const upload = multer({
-  dest: DIR
+  storage: multerS3({
+    s3: s3,
+    bucket: bucketName,
+    acl: 'public-read',
+    key: function (req, file, cb) {
+      cb(null, file.originalname);
+    }
+  })
 });
-// const upload = multer({
-//   storage: multer.diskStorage({
-//     filename: function (req, file, cb) {
-//       // Kepp original filename
-//       cb(null, file.originalname);
-//     },
-//     destination: function (req, file, cb) {
-//       // Save file to subdir to avoid name conflicts
-//       const dest = DIR + new Date().getTime();
-//       fs.mkdir(dest);
-//       cb(null, dest);
-//     }
-//   })
-// });
-
-/**
- * Information of uploaded file
- */
-interface File extends Express.Multer.File {
-  uploadDate: Date;
-  user?: string;
-}
 
 /**
  * Store infomation of all the uploaded files
  * TODO: Use DB stoorage
  */
-const files: { [key: string]: File } = {};
+const files: { [key: string]: Express.Multer.File } = {};
 
 export { files };
 
 export default Router()
-  .post('/files', upload.single('file'), uploadFile)
-  .get('/files', listFiles)
-  .get('/files/:_filename', download)
-  .delete('/files/:_filename', remove)
-  .delete('/files', removeAll);
+  .post('/upload-file', upload.single('file'), uploadFile)
+  .get('/upload-file', listFiles)
+  .delete('/upload-file/:_filename', remove)
+  .delete('/upload-file', removeAll);
 
 /**
  * Upload
@@ -51,11 +44,11 @@ export default Router()
  * @param res
  */
 export function uploadFile(req: Request, res: Response) {
-  const file = req.file as File;
+  const file = req.file;
   // Set upload date
-  file.uploadDate = new Date();
+  file['uploadDate'] = new Date();
   // Save file info
-  files[file.filename] = file;
+  files[file.originalname] = file;
   // Send response
   res.end();
 };
@@ -67,22 +60,11 @@ export function uploadFile(req: Request, res: Response) {
  */
 export function listFiles(req: Request, res: Response) {
   const filesArray = [];
-  Object.keys(files).forEach((flleName) => {
-    filesArray.push(files[flleName]);
+  Object.keys(files).forEach((filename) => {
+    filesArray.push(files[filename]);
   });
   res.json(filesArray);
 };
-
-/**
- * Download file
- * @param req
- * @param res
- */
-export function download(req: Request, res: Response) {
-  const file = files[req.params._filename];
-  res.setHeader('Content-Disposition', 'attachment; filename="' + file.originalname + '"');
-  res.sendfile(file.path);
-}
 
 /**
  * Remove file
@@ -91,7 +73,6 @@ export function download(req: Request, res: Response) {
  */
 export function remove(req: Request, res: Response) {
   const file = files[req.params._filename];
-  // fs.unlink(file.path);
   delete files[req.params._filename];
   res.end();
 }
@@ -102,9 +83,8 @@ export function remove(req: Request, res: Response) {
  * @param res
  */
 export function removeAll(req: Request, res: Response) {
-  // fs.unlink(DIR);
-  Object.keys(files).forEach((flleName) => {
-    delete files[flleName];
+  Object.keys(files).forEach((filename) => {
+    delete files[filename];
   });
   res.end();
 }

@@ -10,16 +10,16 @@ export class FileListService {
 
   // Get uploaded files
   getFiles() {
-    return this.http.get('/api/demo/files')
+    return this.http.get('/api/demo/upload-file')
       .map(res => res.json());
   }
 
   remove(filename) {
-    return this.http.delete('/api/demo/files/' + filename);
+    return this.http.delete('/api/demo/upload-file/' + filename);
   }
 
   removeAll() {
-    return this.http.delete('/api/demo/files');
+    return this.http.delete('/api/demo/upload-file');
   }
 
 }
