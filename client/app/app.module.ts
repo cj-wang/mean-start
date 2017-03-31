@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -14,6 +15,9 @@ import { PostsComponent } from './demo/posts/posts.component';
 import { PostsService } from './demo/posts/posts.service';
 import { ChatComponent } from './demo/chat/chat.component';
 import { HeroFormComponent } from './demo/form/hero-form.component';
+import { UploadFileComponent } from './demo/upload-file/upload-file/upload-file.component';
+import { FileListComponent } from './demo/upload-file/file-list/file-list.component';
+import { FileListService } from './demo/upload-file/file-list/file-list.service';
 
 const ROUTES = [
   {
@@ -31,6 +35,14 @@ const ROUTES = [
   {
     path: 'form',
     component: HeroFormComponent
+  },
+  {
+    path: 'upload-file',
+    component: UploadFileComponent
+  },
+  {
+    path: 'file-list',
+    component: FileListComponent
   }
 ];
 
@@ -40,16 +52,22 @@ const ROUTES = [
     HomeComponent,
     PostsComponent,
     ChatComponent,
-    HeroFormComponent
+    HeroFormComponent,
+    UploadFileComponent,
+    FileListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    FileUploadModule
   ],
-  providers: [MenuService, PostsService],
+  providers: [
+    MenuService,
+    PostsService,
+    FileListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

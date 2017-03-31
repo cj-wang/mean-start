@@ -13,6 +13,14 @@
       {
         "title": "Form",
         "link": "form"
+      },
+      {
+        "title": "Upload Files",
+        "link": "upload-file"
+      },
+      {
+        "title": "Uploaded Files",
+        "link": "file-list"
       }
     ]
   }

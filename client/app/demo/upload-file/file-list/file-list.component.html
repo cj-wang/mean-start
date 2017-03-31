@@ -1,0 +1,41 @@
+<div class="container">
+
+  <div class="row">
+
+    <h5>Uploaded files</h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="50%">Name</th>
+          <th>Size</th>
+          <!--<th>Upload User</th>-->
+          <th>Uploaded Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let file of files">
+          <td><strong><a target="_blank" href="api/demo/files/{{ file.filename }}">{{ file.originalname }}</a></strong></td>
+          <td nowrap>{{ file.size/1024/1024 | number:'.2' }} MB</td>
+          <!--<td>{{file.user}}</td>-->
+          <td>{{file.uploadDate | date:'medium'}}</td>
+          <td nowrap>
+            <a target="_blank" href="api/demo/files/{{ file.filename }}" class="btn btn-success btn-sm">
+              <span class="fa fa-download" aria-hidden="true"></span> Download
+            </a>
+            <button type="button" class="btn btn-danger btn-sm" (click)="remove(file)">
+              <span class="fa fa-trash" aria-hidden="true"></span> Remove
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <button type="button" class="btn btn-danger btn-s" (click)="removeAll()">
+        <span class="fa fa-trash"></span> Remove all
+      </button>
+    </div>
+
+  </div>
+</div>
