@@ -8,9 +8,13 @@ export function getPosts(req: Request, res: Response) {
   const API = 'https://jsonplaceholder.typicode.com';
   return axios.get(`${API}/posts`)
     .then(posts => {
-      res.status(200).json(posts.data);
+      res.status(200).json({
+        data: posts.data
+      });
     })
     .catch(error => {
-      res.status(500).json({ error: 'Error' });
+      res.status(500).json({
+        error: 'Error'
+      });
     });
 };

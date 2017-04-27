@@ -11,7 +11,7 @@ export class FileListService {
   // Get uploaded files
   getFiles() {
     return this.http.get('/api/demo/upload-file')
-      .map(res => res.json());
+      .map(res => res.json().data);
   }
 
   remove(filename) {

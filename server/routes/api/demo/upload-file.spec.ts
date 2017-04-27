@@ -34,8 +34,8 @@ describe('listFiles', () => {
     expect(res._getStatusCode()).toBe(200);
     expect(res._isEndCalled()).toBeTruthy();
     expect(res._isJSON()).toBeTruthy();
-    expect(JSON.parse(res._getData()).length).toBe(1);
-    expect(JSON.parse(res._getData())[0].filename).toBe('abc.txt');
+    expect(JSON.parse(res._getData()).data.length).toBe(1);
+    expect(JSON.parse(res._getData()).data[0].filename).toBe('abc.txt');
   });
 });
 

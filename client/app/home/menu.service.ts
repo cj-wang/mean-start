@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MenuService {
 
-  menu = require('./menu.json');
-
-  constructor() { }
+  constructor(private http: Http) { }
 
   getMenu() {
-    return Observable.of(this.menu);
+    return this.http.get('assets/menu.json')
+      .map(res => res.json().data);
   }
 
 }

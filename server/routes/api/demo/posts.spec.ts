@@ -30,7 +30,7 @@ describe('getPosts', () => {
         expect(res._getStatusCode()).toBe(200);
         expect(res._isEndCalled()).toBeTruthy();
         expect(res._isJSON()).toBeTruthy();
-        expect(JSON.parse(res._getData())).toEqual(posts);
+        expect(JSON.parse(res._getData()).data).toEqual(posts);
         done();
       });
   });

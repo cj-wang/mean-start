@@ -58,7 +58,9 @@ export function listFiles(req: Request, res: Response) {
   Object.keys(files).forEach((filename) => {
     filesArray.push(files[filename]);
   });
-  res.json(filesArray);
+  res.json({
+    data: filesArray
+  });
 };
 
 /**

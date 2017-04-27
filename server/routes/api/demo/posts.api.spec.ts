@@ -8,9 +8,9 @@ describe('GET /api/demo/posts', () => {
       .get('/api/demo/posts')
       .expect(200)
       .then((response) => {
-        expect(response.body).toEqual(jasmine.any(Array));
-        expect(response.body.length).toBeTruthy();
-        expect(response.body[0]).toEqual({
+        expect(response.body.data).toEqual(jasmine.any(Array));
+        expect(response.body.data.length).toBeTruthy();
+        expect(response.body.data[0]).toEqual({
           userId: 1,
           id: 1,
           title: jasmine.any(String),
