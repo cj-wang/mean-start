@@ -10,13 +10,13 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="!navbarExpanded">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/" (click)="navbarExpanded = false">Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/home" (click)="navbarExpanded = false">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item dropdown" ngbDropdown *ngFor="let m of menu; let i = index">
+        <li class="nav-item dropdown" ngbDropdown *ngFor="let m of menu; let i = index" routerLinkActive="active">
           <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="menu-{{i}}" ngbDropdownToggle>{{m.title}}</a>
           <div class="dropdown-menu" [attr.aria-labelledby]="'menu-' + i">
-            <a class="dropdown-item" *ngFor="let sub of m.sub" routerLink="{{sub.link}}" routerLinkActive="font-weight-bold bg-faded"
+            <a class="dropdown-item" *ngFor="let sub of m.sub" routerLink="{{sub.link}}" routerLinkActive="active"
               (click)="navbarExpanded = false">{{sub.title}}</a>
           </div>
         </li>
