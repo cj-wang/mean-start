@@ -19,6 +19,7 @@ import { HeroFormComponent } from './demo/form/hero-form.component';
 import { UploadFileComponent } from './demo/upload-file/upload-file/upload-file.component';
 import { FileListComponent } from './demo/upload-file/file-list/file-list.component';
 import { FileListService } from './demo/upload-file/file-list/file-list.service';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FileListService } from './demo/upload-file/file-list/file-list.service'
     ChatComponent,
     HeroFormComponent,
     UploadFileComponent,
-    FileListComponent
+    FileListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
