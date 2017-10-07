@@ -28,6 +28,10 @@ cd my-proj
 
 Install the npm packages described in the `package.json`:
 ```bash
+yarn
+```
+or alternatively:
+```bash
 npm install
 ```
 
