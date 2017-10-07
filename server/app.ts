@@ -4,6 +4,7 @@ import * as cookieParser from 'cookie-parser';
 import * as path from 'path';
 import * as logger from 'morgan';
 import * as mongoose from 'mongoose';
+require('mongoose').Promise = require('bluebird');
 
 // import index from './routes/index';
 // import users from './routes/users';
@@ -94,11 +95,20 @@ app.use((req, res) => {
 
 export default app;
 
-
+let db;
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/test');
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  console.log('MongoDB connected');
-});
+mongoose.connect('mongodb://localhost/test', { useMongoClient: true})
+  .then( () => {
+    db = mongoose.connection;
+    console.log('MongoDB connected');
+  })
+  .catch( () => {
+    console.log('unable to connect to mongoDB');
+  });
+
+// mongoose.connect('mongodb://localhost/test');
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('openUri', () => {
+//   console.log('MongoDB connected');
+// });
