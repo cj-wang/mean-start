@@ -95,11 +95,9 @@ app.use((req, res) => {
 
 export default app;
 
-let db;
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/test', { useMongoClient: true})
   .then( () => {
-    db = mongoose.connection;
     console.log('MongoDB connected');
   })
   .catch( () => {
