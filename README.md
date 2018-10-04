@@ -4,7 +4,7 @@
 
 [DEMO](https://still-everglades-27346.herokuapp.com)
 
-> Please checkout [mean-start-2](https://github.com/cj-wang/mean-start-2), full stack Angular + Nest, based on ngx-admin template.
+>This project is outdated, please checkout the new [mean-start-2](https://github.com/cj-wang/mean-start-2), full stack Angular + Nest, based on ngx-admin template.
 
 ## Prerequisites
 
