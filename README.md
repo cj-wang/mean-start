@@ -4,6 +4,8 @@
 
 [DEMO](https://still-everglades-27346.herokuapp.com)
 
+> Please checkout [mean-start-2](https://github.com/cj-wang/mean-start-2), full stack Angular + Nest, based on ngx-admin template.
+
 ## Prerequisites
 
 * [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node)
