@@ -1,10 +1,10 @@
+# This project is outdated, please checkout the new [mean-start-2](https://github.com/cj-wang/mean-start-2), full stack Angular + Nest, based on ngx-admin template.
+
 # MEAN Start
 
 **Angular + Angular CLI + Express + Mongoose + Socket.IO. All in TypeScript.** 
 
 [DEMO](https://still-everglades-27346.herokuapp.com)
-
->This project is outdated, please checkout the new [mean-start-2](https://github.com/cj-wang/mean-start-2), full stack Angular + Nest, based on ngx-admin template.
 
 ## Prerequisites
 
