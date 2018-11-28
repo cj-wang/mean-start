@@ -70,6 +70,8 @@ Object.keys(models).forEach((name) => {
       }, (err) => {
         if (err) {
           res.json({ error: err });
+        } else {
+          return res.status(204).end();
         }
       });
     });
